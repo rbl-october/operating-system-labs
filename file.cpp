@@ -4,6 +4,7 @@
 #include <fstream>
 #include <algorithm>
 #include <queue>
+#include <iomanip>
 
 using namespace std;
 
@@ -47,7 +48,8 @@ private:
     vector<CPUQueue> queues;
     vector<Process *> allProcesses; // Dùng Process* để tránh tái phân bổ vùng nhớ
     int currentTime = 0;
-
+    Process *selectSJF(CPUQueue &currentQ, Process *prevProcess);
+    Process *selectSRTN(CPUQueue &currentQ);
     struct GanttEntry
     {
         int start, end;
