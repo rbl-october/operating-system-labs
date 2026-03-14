@@ -157,4 +157,8 @@ void Scheduler::run()
         timeCurrentQueue++;
         currentTime++;
     }
+    if (!ganttChart.empty())
+    {
+        ganttChart.back().end = currentTime;
+    }
 }
