@@ -4,6 +4,11 @@
 
 Process *Scheduler::selectSJF(CPUQueue &currentQ, Process *prevProcess)
 {
+    if (prevProcess != nullptr && prevProcess->queueID == currentQ.qid && !prevProcess->isCompleted)
+    {
+        return prevProcess;
+    }
+
     Process *selected = nullptr;
     int minBurst = 1e6;
     for (Process *p : currentQ.processes)
